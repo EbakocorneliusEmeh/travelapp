@@ -22,7 +22,7 @@ export function useGeocode() {
       if (!json.results || json.results.length === 0)
         throw new Error("City not found");
 
-      setData(json.results[0]); // pick first match
+      setData(json.results[0]);
       setStatus("success");
     } catch (err) {
       setError(err);

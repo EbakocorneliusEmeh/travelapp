@@ -1,5 +1,3 @@
-
-
 import React, { useEffect, useState } from "react";
 import { useLocation, Navigate } from "react-router-dom";
 import Map from "../component/Map";
@@ -71,7 +69,6 @@ export default function SearchResults() {
     <div className="min-h-screen bg-gray-100 px-4 py-6">
       <div className="max-w-7xl mx-auto space-y-6">
 
-        {/* Header */}
         <div className="bg-white rounded-xl shadow p-6">
           <h1 className="text-3xl font-bold">
             {city}
@@ -81,14 +78,12 @@ export default function SearchResults() {
           </h1>
         </div>
 
-        {/* Map */}
         {lat && lon && (
           <div className="bg-white rounded-xl shadow overflow-hidden">
             <Map lat={lat} lon={lon} />
           </div>
         )}
 
-        {/* Weather + Currency */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {lat && lon && (
             <div className="bg-white rounded-xl shadow p-4">
@@ -107,20 +102,17 @@ export default function SearchResults() {
           ) : null}
         </div>
 
-        {/* Languages */}
         {countryCode && (
           <div className="bg-white rounded-xl shadow p-4">
             <LanguageCard countryCode={countryCode} />
           </div>
         )}
 
-        {/* Attractions & Activities */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {lat && lon && <AttractionsList lat={lat} lon={lon} />}
           {lat && lon && <ActivitiesList lat={lat} lon={lon} />}
         </div>
 
-        {/* Airports */}
         {lat && lon && country && (
           <div className="bg-white rounded-xl shadow p-4">
             <AirportInfo lat={lat} lon={lon} country={country} />
